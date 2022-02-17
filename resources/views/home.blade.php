@@ -1,5 +1,34 @@
+<?php
+use App\Movie;
+use Illuminate\Validation\Rules\Exists;
+
+$insertMovie = new Movie();
+
+$insertMovie->title = "Attack on Titan: The Roar of Awakening";
+$insertMovie->original_title = "劇場版 進撃の巨人 覚醒の咆哮";
+$insertMovie->nationality = "japanese";
+$insertMovie->date = "2018-01-13";
+$insertMovie->vote = 8.4;
+
+foreach($movies as $element)
+{
+    if($element->title == $insertMovie->title && $element->original_title == $insertMovie->original_title)
+    {
+        $find = true;
+        break;
+    }
+}
+
+if(!isset($find))
+{
+    $insertMovie->save();
+}
+
+?>
 
 @extends('layouts.base')
+
+
 
 @section('content')
     <div class="container">
