@@ -19,9 +19,14 @@ foreach($movies as $element)
     }
 }
 
-if(!isset($find))
+if(!isset($find) || $find != true)
 {
     $insertMovie->save();
+    $find = false;
+}
+else
+{
+    var_dump("il dato è già presente nel database");
 }
 
 ?>
